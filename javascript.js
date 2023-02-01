@@ -14,6 +14,13 @@ const users = [
         avatar: "https://reqres.in/img/faces/8-image.jpg",
     },
     {
+        id: 8,
+        email: "lindsay.ferguson@reqres.in",
+        first_name: "Lindsay",
+        last_name: "Ferguson",
+        avatar: "https://reqres.in/img/faces/8-image.jpg",
+    },
+    {
         id: 9,
         email: "tobias.funke@reqres.in",
         first_name: "Tobias",
@@ -75,12 +82,13 @@ for (let index = 0; index < users.length; index++) {
     const name = document.createElement("p");
     const surname = document.createElement("p");
     const div = document.createElement("div");
+
     link.addEventListener("mouseover", () => {
         image.setAttribute("src", element.avatar);
         email.textContent = element.email;
         name.textContent = element.first_name;
         surname.textContent = element.last_name;
-        createLi.appendChild(image);
+        createLi.appendChild(image); // ამატებს სულ ბოლოში.
         createLi.appendChild(email);
         createLi.appendChild(name);
         createLi.appendChild(surname);
@@ -92,3 +100,30 @@ for (let index = 0; index < users.length; index++) {
         surname.remove();
     });
 }
+/*----------------------------------------------------------------------------------*/
+
+const textContent = (document.createTextNode = "this is mafia"); // it just creates text.
+const tryIt = document.getElementById("try");
+const appearBtn = document.getElementById("appearBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+deleteBtn.textContent = "delete";
+appearBtn.textContent = "appear";
+
+appearBtn.addEventListener("click", () => {
+    tryIt.innerHTML = textContent;
+});
+deleteBtn.addEventListener("click", () => {
+    tryIt.innerHTML = "";
+});
+
+/*----------------------------------------------------------------------------------*/
+
+const appendOper = document.getElementById("appendOper");
+const firstpara = appendOper.getElementsByTagName("p")[2];
+appendOper.style.display = "inline-block";
+const child = document.createElement("p");
+// appendOper.appendChild(child);   // ამატებს (გამოაჩენს) დაბლა.
+// child.innerHTML = "this is text!";
+// appendOper.insertBefore(child, appendOper.firstChild); // ამატებს (გამოაჩენს) ზემოთ.
+child.innerHTML = "this is text!";
+appendOper.insertBefore(child, firstpara); // დასვავს 2 ინდექსზე.
