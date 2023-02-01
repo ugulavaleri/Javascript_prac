@@ -40,3 +40,19 @@ img {
     width: 50px;
     vertical-align: middle;
 }
+
+/*------------------------------------------------*/
+#user-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.avatar {
+    height: 100px;
+    object-fit: cover;
+    max-width: 100px;
+    width: 100%;
+}
+.name {
+    text-align: center;
+}

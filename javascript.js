@@ -61,7 +61,7 @@ const users = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
-        age: 23,
+        age: 45,
     },
     {
         id: 12,
@@ -69,74 +69,126 @@ const users = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
-        age: 20,
+        age: 45,
+    },
+    {
+        id: 12,
+        email: "rachel.howell@reqres.in",
+        first_name: "Rachel",
+        last_name: "Howell",
+        avatar: "https://reqres.in/img/faces/12-image.jpg",
+        age: 45,
     },
 ];
+// homework
 
-const list = document.getElementById("ul");
-const container = document.getElementById("container");
-container.setAttribute("class", "container");
-list.setAttribute("class", "list");
+const userList = document.getElementById("user-list");
 for (let index = 0; index < users.length; index++) {
     const element = users[index];
-    const createLi = document.createElement("li");
-    const link = document.createElement("a");
-    link.textContent = element.first_name;
-    link.setAttribute("href", element.avatar);
-    link.classList.add("link");
-    list.appendChild(createLi);
-    createLi.appendChild(link);
-    const image = document.createElement("img");
-    const email = document.createElement("a");
-    const name = document.createElement("p");
-    const surname = document.createElement("p");
-    const div = document.createElement("div");
+    const Name = (document.createTextNode = element.first_name);
+    const item = document.createElement("div");
+    item.setAttribute("class", "item");
+    userList.appendChild(item);
 
-    link.addEventListener("mouseover", () => {
-        image.setAttribute("src", element.avatar);
-        email.textContent = element.email;
-        name.textContent = element.first_name;
-        surname.textContent = element.last_name;
-        createLi.appendChild(image); // ამატებს სულ ბოლოში.
-        createLi.appendChild(email);
-        createLi.appendChild(name);
-        createLi.appendChild(surname);
+    const img = document.createElement("img");
+    img.setAttribute("src", element.avatar);
+    img.setAttribute("class", "avatar");
+    item.appendChild(img);
+    const name = document.createElement("p");
+    name.setAttribute("class", "name");
+    name.textContent = Name;
+    item.appendChild(name);
+
+    // 1.
+    const Deletebutton = document.createElement("button");
+    Deletebutton.textContent = "Delete";
+    Deletebutton.style.fontSize = "11px";
+    item.appendChild(Deletebutton);
+    // 2.
+    const infoButton = document.createElement("button");
+    infoButton.textContent = "Info";
+    infoButton.style.fontSize = "11px";
+    item.appendChild(infoButton);
+
+    Deletebutton.addEventListener("click", () => {
+        item.remove();
     });
-    link.addEventListener("mouseout", () => {
-        image.remove();
-        email.remove();
-        name.remove();
-        surname.remove();
+    infoButton.addEventListener("click", () => {
+        const email = document.createElement("p");
+        email.textContent = element.email;
+        email.style.fontSize = "11px";
+        item.appendChild(email);
     });
 }
+
+// make motions after hover cursor.
+
+// const list = document.getElementById("ul");
+// const container = document.getElementById("container");
+// container.setAttribute("class", "container");
+// list.setAttribute("class", "list");
+// for (let index = 0; index < users.length; index++) {
+//     const element = users[index];
+//     const createLi = document.createElement("li");
+//     const link = document.createElement("a");
+//     link.textContent = element.first_name;
+//     link.setAttribute("href", element.avatar);
+//     link.classList.add("link");
+//     list.appendChild(createLi);
+//     createLi.appendChild(link);
+//     const image = document.createElement("img");
+//     const email = document.createElement("a");
+//     const name = document.createElement("p");
+//     const surname = document.createElement("p");
+//     const div = document.createElement("div");
+
+//     link.addEventListener("mouseover", () => {
+//         image.setAttribute("src", element.avatar);
+//         email.textContent = element.email;
+//         name.textContent = element.first_name;
+//         surname.textContent = element.last_name;
+//         createLi.appendChild(image); // ამატებს სულ ბოლოში.
+//         createLi.appendChild(email);
+//         createLi.appendChild(name);
+//         createLi.appendChild(surname);
+//     });
+//     link.addEventListener("mouseout", () => {
+//         image.remove();
+//         email.remove();
+//         name.remove();
+//         surname.remove();
+//     });
+// }
+
+/*----------------------------------------------------------------------------------*/
 // sorts by age.
-const finder = users.sort((a, b) => a.age - b.age);
-console.log(finder);
+// const finder = users.sort((a, b) => a.age - b.age);
+// console.log(finder);
 /*----------------------------------------------------------------------------------*/
 // appear and delete text by click.
 
-const textContent = (document.createTextNode = "this is mafia"); // it just creates text.
-const tryIt = document.getElementById("try");
-const appearBtn = document.getElementById("appearBtn");
-const deleteBtn = document.getElementById("deleteBtn");
-deleteBtn.textContent = "delete";
-appearBtn.textContent = "appear";
+// const textContent = (document.createTextNode = "this is mafia"); // it just creates text.
+// const tryIt = document.getElementById("try");
+// const appearBtn = document.getElementById("appearBtn");
+// const deleteBtn = document.getElementById("deleteBtn");
+// deleteBtn.textContent = "delete";
+// appearBtn.textContent = "appear";
 
-appearBtn.addEventListener("click", () => {
-    tryIt.style.position = "absolute";
-    tryIt.style.position = "absolute";
-    tryIt.style.border = "1px solid black";
-    tryIt.style.display = "inline-block";
-    tryIt.style.padding = "5px";
-    tryIt.style.backgroundColor = "lightpink";
+// appearBtn.addEventListener("click", () => {
+//     tryIt.style.position = "absolute";
+//     tryIt.style.position = "absolute";
+//     tryIt.style.border = "1px solid black";
+//     tryIt.style.display = "inline-block";
+//     tryIt.style.padding = "5px";
+//     tryIt.style.backgroundColor = "lightpink";
 
-    tryIt.innerHTML = textContent;
-});
-deleteBtn.addEventListener("click", () => {
-    tryIt.style.border = "none";
-    tryIt.style.backgroundColor = "transparent";
-    tryIt.innerHTML = "";
-});
+//     tryIt.innerHTML = textContent;
+// });
+// deleteBtn.addEventListener("click", () => {
+//     tryIt.style.border = "none";
+//     tryIt.style.backgroundColor = "transparent";
+//     tryIt.innerHTML = "";
+// });
 
 /*----------------------------------------------------------------------------------*/
 // insertBefore
@@ -201,9 +253,9 @@ appendOper.insertBefore(child, firstpara); // დასვავს 2 ინდ�
 // const isArray = document.getElementById("isArray");      --> ამას ვერ მოვექცევით მასივივით, იმიტომ რომ ერთზე მეტი id არ უნდა იყოს. არ აქვს სიგრძე.
 // const isArray = document.getElementsByClassName("isArray"); --> მასივია ჩვეულებრივი. აქვს სიგრძეც.
 // const isArray = document.getElementsByName("isArray"); --> მასივია ჩვეულებრივი.
-const isArray = document.querySelectorAll(".isArray"); // --> მასივია ჩვეულებრივი.
+// const isArray = document.querySelectorAll(".isArray"); // --> მასივია ჩვეულებრივი.
 
-isArray[0].style.backgroundColor = "lightpink"; // ანუ ამით ყველაფერი კი წამოიღე, რასაც კლასი isArray აქვს,
+// isArray[0].style.backgroundColor = "lightpink"; // ანუ ამით ყველაფერი კი წამოიღე, რასაც კლასი isArray აქვს,
 // მაგრამ საჭიროა მივუთითოთ თუ რომელ ინდექსზე გვინდა მოქმედებების ჩატარება. ინდექსის გარეშე ერორია.
 
 // for (let index = 0; index < isArray.length; index++) {   --> ეს და ამის ქვევითა კოდი იდენტურია. და ორივე პარაგრაფს ავარდისფრებს.
@@ -217,3 +269,47 @@ isArray[0].style.backgroundColor = "lightpink"; // ანუ ამით ყვ
 // console.log(isArray.length);
 
 /*----------------------------------------------------------------------------------*/
+// removeChild
+
+const isArray = document.getElementById("isArray-box");
+// isArray.removeChild(isArray.firstElementChild); // removes first child of parent.
+
+while (isArray.firstChild !== "") {
+    // same as 'isArray.firstChild' in logic. easy logic.
+    isArray.removeChild(isArray.firstChild);
+}
+// isArray.replaceChild(isArray.lastElementChild, isArray.firstElementChild); -> syntax: isArray.replaceChild( newChild,child )
+// console.log(isArray);
+
+/*----------------------------------------------------------------------------------*/
+// nodeName
+// const isArray = document.getElementById("isArray-box");
+// const element = isArray.firstChild.nodeName;
+// console.log(element);
+
+/*----------------------------------------------------------------------------------*/
+
+// let getSiblings = function (e) {
+//     // for collecting siblings
+//     let siblings = [];
+//     // if no parent, return no sibling
+//     if (!e.parentNode) {
+//         return siblings;
+//     }
+//     // first child of the parent node
+//     let sibling = e.parentNode.firstChild;
+//     // collecting siblings
+//     while (sibling) {
+//         if (sibling.nodeType === 1 && sibling !== e) {
+//             siblings.push(sibling);
+//         }
+//         sibling = sibling.nextSibling;
+//     }
+//     return siblings;
+// };
+
+// const variable = document.querySelector(".current");
+
+// let siblings = getSiblings(variable);
+// siblingText = siblings.map((e) => e.innerHTML);
+// console.log(siblingText);
