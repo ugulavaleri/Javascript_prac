@@ -5,6 +5,7 @@ const users = [
         first_name: "Michael",
         last_name: "Lawson",
         avatar: "https://reqres.in/img/faces/7-image.jpg",
+        age: 28,
     },
     {
         id: 8,
@@ -12,6 +13,7 @@ const users = [
         first_name: "Lindsay",
         last_name: "Ferguson",
         avatar: "https://reqres.in/img/faces/8-image.jpg",
+        age: 33,
     },
     {
         id: 8,
@@ -19,6 +21,7 @@ const users = [
         first_name: "Lindsay",
         last_name: "Ferguson",
         avatar: "https://reqres.in/img/faces/8-image.jpg",
+        age: 40,
     },
     {
         id: 9,
@@ -26,6 +29,7 @@ const users = [
         first_name: "Tobias",
         last_name: "Funke",
         avatar: "https://reqres.in/img/faces/9-image.jpg",
+        age: 18,
     },
     {
         id: 10,
@@ -33,6 +37,7 @@ const users = [
         first_name: "Byron",
         last_name: "Fields",
         avatar: "https://reqres.in/img/faces/10-image.jpg",
+        age: 65,
     },
     {
         id: 11,
@@ -40,6 +45,7 @@ const users = [
         first_name: "George",
         last_name: "Edwards",
         avatar: "https://reqres.in/img/faces/11-image.jpg",
+        age: 32,
     },
     {
         id: 12,
@@ -47,6 +53,7 @@ const users = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
+        age: 45,
     },
     {
         id: 12,
@@ -54,6 +61,7 @@ const users = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
+        age: 23,
     },
     {
         id: 12,
@@ -61,6 +69,7 @@ const users = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
+        age: 20,
     },
 ];
 
@@ -100,7 +109,11 @@ for (let index = 0; index < users.length; index++) {
         surname.remove();
     });
 }
+// sorts by age.
+const finder = users.sort((a, b) => a.age - b.age);
+console.log(finder);
 /*----------------------------------------------------------------------------------*/
+// appear and delete text by click.
 
 const textContent = (document.createTextNode = "this is mafia"); // it just creates text.
 const tryIt = document.getElementById("try");
@@ -110,13 +123,23 @@ deleteBtn.textContent = "delete";
 appearBtn.textContent = "appear";
 
 appearBtn.addEventListener("click", () => {
+    tryIt.style.position = "absolute";
+    tryIt.style.position = "absolute";
+    tryIt.style.border = "1px solid black";
+    tryIt.style.display = "inline-block";
+    tryIt.style.padding = "5px";
+    tryIt.style.backgroundColor = "lightpink";
+
     tryIt.innerHTML = textContent;
 });
 deleteBtn.addEventListener("click", () => {
+    tryIt.style.border = "none";
+    tryIt.style.backgroundColor = "transparent";
     tryIt.innerHTML = "";
 });
 
 /*----------------------------------------------------------------------------------*/
+// insertBefore
 
 const appendOper = document.getElementById("appendOper");
 const firstpara = appendOper.getElementsByTagName("p")[2];
@@ -127,3 +150,70 @@ const child = document.createElement("p");
 // appendOper.insertBefore(child, appendOper.firstChild); // ამატებს (გამოაჩენს) ზემოთ.
 child.innerHTML = "this is text!";
 appendOper.insertBefore(child, firstpara); // დასვავს 2 ინდექსზე.
+
+/*----------------------------------------------------------------------------------*/
+// traversal techniique
+
+// const box = document.getElementById("traversal_technique");
+// const element = box.lastElementChild; // მთლიანი ბოლო ლისტი გახდება ვარდისფერი
+// // const element = box.firstElementChild; // მთლიანი პირველი ლისტი გახდება ვარდისფერი
+// element.style.backgroundColor = "lightpink";
+
+// const box = document.getElementById("traversal_technique");
+// const eachUl = document.getElementById("fruits");
+// const parent = eachUl.parentElement; // მოვნიშნეთ ერთერთი(შესაბამისად ყველასი. სიბლინგები არიან) ლისტის მშობელი.
+// parent.style.backgroundColor = "lightpink"; // სამივე ul გახდება ვარდისფერი(ანუ მშობელი რა).
+
+// const eachUl = document.getElementById("fruits"); // შუა ლისტი.
+// // const element = eachUl.nextElementSibling; // შუას ქვემოთა გახდება ვარდისფერო
+// const element = eachUl.previousElementSibling; // შუას ზემოთა გახდება ვარდისფერო
+// element.style.backgroundColor = "lightpink";
+
+// const eachUl = document.getElementById("fruits"); // შუა ლისტი.
+// const element = eachUl.lastElementChild; // შუა ლისტის ბოლო ნაწილი გახდება ვარდისფერი.
+// // const element = eachUl.firstElementChild; // შუა ლისტის პირველი ნაწილი გახდება ვარდისფერი.
+// element.style.backgroundColor = "lightpink";
+
+// const eachUl = document.getElementById("fruits"); // შუა ლისტი.
+// const element = eachUl.children[2]; // შუა ლისტის მეორე ინდექსი (ტექსტის ნაწილი) გახდება ვარდისფერი.
+// const element = Array.from(eachUl.children); // children haven't foreach method. now 'element' is array.
+// element.forEach((child) => (child.style.backgroundColor = "lightpink"));
+
+// const box = document.getElementById("traversal_technique"); --> შეგვიძლია ამის საშუალებით სამივე ლისტი ცალცალკე გავავარდისფროთ.
+
+// const newArr = Array.from(eachUl.children); --> იგივეა რაც ზედა კოდი.
+// newArr.forEach((element) => {
+//     element.style.backgroundColor = "lightpink";
+// });
+
+// Selectors:
+
+// .lastElementChild
+// .firstElementChild
+// .parentElement
+// .nextElementSibling
+// .previousElementSibling
+// .children[]
+// Array.from(.childre) it is method. x.from(.childre) doesn't works.
+
+/*----------------------------------------------------------------------------------*/
+
+// const isArray = document.getElementById("isArray");      --> ამას ვერ მოვექცევით მასივივით, იმიტომ რომ ერთზე მეტი id არ უნდა იყოს. არ აქვს სიგრძე.
+// const isArray = document.getElementsByClassName("isArray"); --> მასივია ჩვეულებრივი. აქვს სიგრძეც.
+// const isArray = document.getElementsByName("isArray"); --> მასივია ჩვეულებრივი.
+const isArray = document.querySelectorAll(".isArray"); // --> მასივია ჩვეულებრივი.
+
+isArray[0].style.backgroundColor = "lightpink"; // ანუ ამით ყველაფერი კი წამოიღე, რასაც კლასი isArray აქვს,
+// მაგრამ საჭიროა მივუთითოთ თუ რომელ ინდექსზე გვინდა მოქმედებების ჩატარება. ინდექსის გარეშე ერორია.
+
+// for (let index = 0; index < isArray.length; index++) {   --> ეს და ამის ქვევითა კოდი იდენტურია. და ორივე პარაგრაფს ავარდისფრებს.
+//     const element = isArray[index];
+//     isArray[index].style.backgroundColor = "lightpink";
+// }
+
+// const updatedArray = Array.from(isArray);
+// updatedArray.forEach((e) => (e.style.backgroundColor = "lightpink"));
+
+// console.log(isArray.length);
+
+/*----------------------------------------------------------------------------------*/
