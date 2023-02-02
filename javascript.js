@@ -193,15 +193,15 @@ for (let index = 0; index < users.length; index++) {
 /*----------------------------------------------------------------------------------*/
 // insertBefore
 
-const appendOper = document.getElementById("appendOper");
-const firstpara = appendOper.getElementsByTagName("p")[2];
-appendOper.style.display = "inline-block";
-const child = document.createElement("p");
-// appendOper.appendChild(child);   // ამატებს (გამოაჩენს) დაბლა.
+// const appendOper = document.getElementById("appendOper");
+// const firstpara = appendOper.getElementsByTagName("p")[2];
+// appendOper.style.display = "inline-block";
+// const child = document.createElement("p");
+// // appendOper.appendChild(child);   // ამატებს (გამოაჩენს) დაბლა.
+// // child.innerHTML = "this is text!";
+// // appendOper.insertBefore(child, appendOper.firstChild); // ამატებს (გამოაჩენს) ზემოთ.
 // child.innerHTML = "this is text!";
-// appendOper.insertBefore(child, appendOper.firstChild); // ამატებს (გამოაჩენს) ზემოთ.
-child.innerHTML = "this is text!";
-appendOper.insertBefore(child, firstpara); // დასვავს 2 ინდექსზე.
+// appendOper.insertBefore(child, firstpara); // დასვავს 2 ინდექსზე.
 
 /*----------------------------------------------------------------------------------*/
 // traversal techniique
@@ -271,13 +271,13 @@ appendOper.insertBefore(child, firstpara); // დასვავს 2 ინდ�
 /*----------------------------------------------------------------------------------*/
 // removeChild
 
-const isArray = document.getElementById("isArray-box");
-// isArray.removeChild(isArray.firstElementChild); // removes first child of parent.
+// const isArray = document.getElementById("isArray-box");
+// // isArray.removeChild(isArray.firstElementChild); // removes first child of parent.
 
-while (isArray.firstChild !== "") {
-    // same as 'isArray.firstChild' in logic. easy logic.
-    isArray.removeChild(isArray.firstChild);
-}
+// while (isArray.firstChild !== "") {
+//     // same as 'isArray.firstChild' in logic. easy logic.
+//     isArray.removeChild(isArray.firstChild);
+// }
 // isArray.replaceChild(isArray.lastElementChild, isArray.firstElementChild); -> syntax: isArray.replaceChild( newChild,child )
 // console.log(isArray);
 
@@ -313,3 +313,36 @@ while (isArray.firstChild !== "") {
 // let siblings = getSiblings(variable);
 // siblingText = siblings.map((e) => e.innerHTML);
 // console.log(siblingText);
+
+/*----------------------------------------------------------------------------------*/
+
+const api = document.getElementById("api");
+
+const data = (num) => {
+    return new Promise((resolve, reject) => {
+        if (num < 20) {
+            setInterval(() => {
+                const paragraph = document.createElement("p");
+                paragraph.style.fontSize = "15px";
+                paragraph.textContent = "this is API";
+                api.appendChild(paragraph);
+            }, 2000);
+        } else {
+            setTimeout(() => {
+                const paragraph = document.createElement("p");
+                paragraph.style.fontSize = "15px";
+                paragraph.textContent = "this is API2";
+                api.appendChild(paragraph);
+            }, 2000);
+        }
+    });
+};
+
+// setInterval(() => {
+//     const paragraph = document.createElement("p");
+//     paragraph.style.fontSize = "15px";
+//     paragraph.textContent = "this is API";
+//     api.appendChild(paragraph);
+// }, 2000);
+
+// data(22);
