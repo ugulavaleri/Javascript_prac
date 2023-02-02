@@ -346,3 +346,24 @@ const data = (num) => {
 // }, 2000);
 
 // data(22);
+
+/*----------------------------------------------------------------------------------*/
+
+const element = document.getElementById("events");
+element.style.width = "100px";
+element.style.height = "100px";
+element.style.backgroundColor = "blue";
+
+const doSome = () => {
+    element.style.backgroundColor = "red";
+};
+
+const doSomeElse = () => {
+    element.style.backgroundColor = "blue";
+};
+
+// element.onclick = doSome; // დაკლიკვაზე
+// element.onmouseover = doSome; // კურსორის გადატარებაზე.
+// element.onmouseout = doSomeElse; // კურსორის მოშორებაზე
+// element.onmousedown = doSome;        // როცა ღილაკს დავაჭერთ (და გავაჩერებთ)
+// element.onmouseup = doSomeElse;      // როცა ღილაკს ავუშვებთ
